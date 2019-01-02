@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="gr__apps-2477041212310610_apps_fbsbx_com"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Stickman Rope</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+	<link rel="manifest" href="https://apps-2477041212310610.apps.fbsbx.com/instant-bundle/2130388003693838/2196297250415684/appmanifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" sizes="128x128" href="https://apps-2477041212310610.apps.fbsbx.com/instant-bundle/2130388003693838/2196297250415684/icons/icon-128.png">
+	<link rel="apple-touch-icon" sizes="256x256" href="https://apps-2477041212310610.apps.fbsbx.com/instant-bundle/2130388003693838/2196297250415684/icons/icon-256.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="https://apps-2477041212310610.apps.fbsbx.com/instant-bundle/2130388003693838/2196297250415684/icons/icon-512.png">
+	<link rel="icon" type="image/png" href="https://apps-2477041212310610.apps.fbsbx.com/instant-bundle/2130388003693838/2196297250415684/icons/icon-512.png">
+
+<link rel="stylesheet" href="index_files/style.css">
+
+<script id="gamedistribution-jssdk" src="index_files/main_002.js"></script><script src="index_files/c3runtime.js"></script></head>
+<body data-gr-c-s-loaded="true">
+
+	<script src="index_files/fbinstant.js"></script>
+
+	<script type="text/javascript">
+		FBInstant.initializeAsync().then(function() {
+			var images = [];
+			var len = 100;
+			for (var i = 0; i < len; i++) {
+				var progress = ((i + 1) / len) * 100;
+				FBInstant.setLoadingProgress(progress);
+			}
+			FBInstant.startGameAsync().then(function() {
+				game.start();
+			});
+		});
+		
+		FBInstant.onPause(function() {})
+
+	</script>
+	
+	
+		
+<script type="text/javascript">
+
+        function loadAds() {
+            var ad = null;
+			
+          FBInstant.getInterstitialAdAsync("2477041212310610_2479791208702277").then(function(interstitial) {
+              ad = interstitial;
+              return ad.loadAsync();
+          }).then(function() {
+              return ad.showAsync();
+          }).then(function() {
+              
+          }).catch(function(e) {
+              console.log(e.message);
+          });
+
+        }
+		
+
+		
+		function loadVideoAds() {
+			var videoad = null;
+			
+		
+		FBInstant.getRewardedVideoAsync("2477041212310610_2479791368702261").then(function(rewardedvideo) {
+              videoad = rewardedvideo;
+              return videoad.loadAsync();
+          }).then(function() {
+              return videoad.showAsync();
+          }).then(function() {
+              
+          }).catch(function(e) {
+              console.log(e.message);
+          });
+		  
+
+		  //setInterval(function(){ loadAds(); }, 55*1000);
+		  
+        }
+		
+        setTimeout(function(){ loadAds(); }, 10000);   
+		setTimeout(function(){ loadVideoAds(); }, 30000);
+
+</script>
+
+	
+	
+<div id="fb-root"></div>
+	<script src="index_files/box2d.js"></script>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p id="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+	<script src="index_files/supportCheck.js"></script>
+	<script src="index_files/offlineClient.js"></script>
+	<script src="index_files/main.js"></script><canvas style="width: 659px; height: 989px; margin-left: 1046px; margin-top: 0px;" width="824" height="1236"></canvas>
+	<script src="index_files/register-sw.js"></script>
+
+</body></html>
