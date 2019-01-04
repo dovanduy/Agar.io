@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>fireballs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <style>
+        @font-face {
+            font-family: 'fireballfont';
+            src: url('./resource/font/fireballs-font.otf');
+        }
+
+        html,
+        body {
+            touch-action: none;
+            background: #888888;
+            padding: 0px;
+            border: 0px;
+            margin: 0px;
+            height: 100%;
+            font-family: 'fireballfont';
+        }
+    </style>
+    <script src="https://connect.facebook.net/en_US/fbinstant.6.2.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.$t_version = '1.2.3'
+        window.$t_appname = 'angryball'
+
+        var loadScript = function(list, callback) {
+            var loaded = 0
+            var loadNext = function() {
+                loadSingleScript(list[loaded], function() {
+                    loaded++
+                    // js脚本最多占30%的加载进度
+                    FBInstant.setLoadingProgress(Math.min(2 * loaded, 30))
+                    if (loaded >= list.length) {
+                        callback()
+                    } else {
+                        loadNext()
+                    }
+                })
+            }
+            loadNext()
+        }
+        var loadSingleScript = function(src, callback) {
+            var script = document.createElement('script')
+            script.async = false
+            script.src = src
+            script.addEventListener(
+                'load',
+                function() {
+                    script.parentNode.removeChild(script)
+                    script.removeEventListener('load', arguments.callee, false)
+                    callback()
+                },
+                false
+            )
+            document.body.appendChild(script)
+        }
+        // You can customize your lib scripts here
+        var scriptList = [
+            './libs/min/report.js',
+            './libs/min/laya.core.min.js',
+            './libs/min/laya.webgl.min.js',
+            './libs/min/laya.ani.min.js',
+            './libs/min/laya.d3.min.js',
+            // './libs/min/laya.d3Plugin.min.js',
+            // './libs/min/laya.debugtool.min.js',
+            './libs/min/laya.device.min.js',
+            './libs/min/laya.filter.min.js',
+            // './libs/min/laya.html.min.js',
+            './libs/min/laya.particle.min.js',
+            // './libs/min/laya.pathfinding.min.js',
+            // './libs/min/laya.tiledmap.min.js',
+            './libs/min/laya.ui.min.js',
+            // './libs/min/laya.wxmini.min.js',
+            './libs/min/laya.vconsole.min.js',
+            './libs/min/jszip.min.js',
+            // 'https://localhost:8080/webpack-dev-server.js',
+            './dist/main.bundle.js',
+        ]
+        window.onload = function() {
+            FBInstant.initializeAsync().then(function() {
+                loadScript(scriptList, function() {
+                    console.log('all scripts loaded')
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>
